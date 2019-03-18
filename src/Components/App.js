@@ -6,11 +6,11 @@ export default class extends Component{
   render() {
     return(
       <Fragment>
-         <Header/>
+        <Header/>
         
         <Exercises/>
         
-          <Footer/>
+        <Footer/>
       </Fragment>
     )
   }
