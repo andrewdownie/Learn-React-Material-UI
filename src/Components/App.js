@@ -28,7 +28,6 @@ export default class extends Component{
   }
   
   handleExerciseSelected = id => {
-    console.log("meow");
     this.setState(({exercises}) => ({
       exercise: exercises.find(ex => ex.id === id)
     }))
@@ -46,7 +45,7 @@ export default class extends Component{
           exercise={exercise}
           category={category}
           exercises={exercises}
-          onSelect={this.handleExcercisesSelected}
+          onSelect={this.handleExerciseSelected}
         />
         
         <Footer
