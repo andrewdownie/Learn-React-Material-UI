@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
-import {Grid, Paper, Typography, List} from 'material-ui';
-import {ListItem, ListItemText} from 'material-ui/List';
+import {Grid, Paper, Typography, List, IconButton} from 'material-ui';
+import {ListItem, ListItemText, ListItemSecondaryAction} from 'material-ui/List';
+import {Delete} from 'material-ui-icons';
 
 
 const styles = {
@@ -21,7 +22,8 @@ export default ({
       id,
       title = "Welcome",
       description = "Please select an exercise from the list on the left"
-    }
+    },
+  onDelete
   }) => (
   <Grid container>
     <Grid xs={6} item>
@@ -40,6 +42,12 @@ export default ({
                   onClick={() => onSelect(id)}
                 >
                 <ListItemText primary={title} />
+                <ListItemSecondaryAction>
+                   <IconButton onClick={() => onDelete(id)}>
+                     <Delete/>
+                   </IconButton>
+                  
+                </ListItemSecondaryAction>
                 </ListItem>
               )}
             </List>
