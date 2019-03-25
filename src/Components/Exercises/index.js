@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import {Grid, Paper, Typography, List, IconButton} from 'material-ui';
 import {ListItem, ListItemText, ListItemSecondaryAction} from 'material-ui/List';
-import {Delete, Edit} from 'material-ui-icons';
+import {Delete, Edit} from '@material-ui/icons';
 import Form from './Form';
 
 

@@ -25,10 +25,8 @@ export default withStyles(styles)(
     }
   }
 
-  componentWillReceiveProps({exercise}) {
-    this.setState({
-      ...exercise
-    });
+  static getDerivedStateFromProps({exercise}) {
+    return exercise || null;
   }
   
     handleChange = (name) => ({target: {value}}) => {
