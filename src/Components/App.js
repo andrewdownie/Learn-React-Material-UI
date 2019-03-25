@@ -64,10 +64,14 @@ export default class extends Component{
   }
   
   handleExerciseEdit = exercise => {
-    this.setState(({exercises}) => {
-      exercises: [...exercises.filter(ex => ex.id !== exercise.id), exercise],
+    console.log("Edit exercise pls");
+    this.setState(({exercises}) => ({
+      exercises: [
+        ...exercises.filter(ex => ex.id !== exercise.id),
+        exercise
+      ],
       exercise
-    })
+    }))
   }
   
   render() {
