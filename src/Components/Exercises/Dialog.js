@@ -20,6 +20,12 @@ export default class extends Component {
         open: !this.state.open
       });
     }
+    
+    handleFormSubmit = exercise => {
+      this.handleToggle();
+      
+      this.props.onCreate(exercise);
+    }
 
 
     render(){
@@ -44,7 +50,7 @@ export default class extends Component {
                 </DialogContentText>
                 <Form
                   muscles={muscles}
-                  onSubmit={onCreate}
+                  onSubmit={this.handleFormSubmit}
                   />
               </DialogContent>
             </Dialog>
