@@ -3,15 +3,8 @@ import {TextField, Select, Button} from 'material-ui';
 import { FormControl } from "material-ui/Form";
 import { InputLabel } from "material-ui/Input";
 import { MenuItem } from "material-ui/Menu";
-import { withStyles } from "material-ui/styles";
 
-const styles = theme => ({
-  FormControl: {
-    width: 250
-  }
-});
-
-export default withStyles(styles)(
+export default
   class extends Component {
     state = this.getInitState();
   
@@ -25,9 +18,6 @@ export default withStyles(styles)(
     }
   }
 
-  static getDerivedStateFromProps({exercise}) {
-    return exercise || null;
-  }
   
     handleChange = (name) => ({target: {value}}) => {
       this.setState({
@@ -44,12 +34,12 @@ export default withStyles(styles)(
         ...this.state,
       });
       
-      this.setState(this.getInitState());
+      //this.setState(this.getInitState());
     }
 
     render() {
       const {title, description, muscles} = this.state;
-      const { classes, muscles: categories, exercise } = this.props;
+      const { muscles: categories, exercise } = this.props;
       
       return (
         <form>
@@ -58,10 +48,10 @@ export default withStyles(styles)(
             value={title}
             onChange={this.handleChange("title")}
             margin="normal"
-            className={classes.FormControl}
+            fullWidth
           />
           <br />
-          <FormControl className={classes.FormControl}>
+          <FormControl fullWidth>
             <InputLabel htmlFor="muscles">Muscles</InputLabel>
             <Select value={muscles} onChange={this.handleChange("muscles")}>
               {categories.map(category => (
@@ -79,18 +69,18 @@ export default withStyles(styles)(
             value={description}
             onChange={this.handleChange("description")}
             margin="normal"
-            className={classes.FormControl}
+            fullWidth
           />
           <br/>
           <Button
             onClick={this.handleSubmit}
             color="primary"
             variant="raised"
+            disabled={!title || !muscles}
           >
             {exercise ? 'Edit' : 'Create'}
           </Button>
         </form>
       );
     }
-  }
-);
+  };

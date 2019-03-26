@@ -1,7 +1,5 @@
 import React from 'react';
-import {Paper, Tabs} from 'material-ui';
-import {Tab} from 'material-ui/Tabs';
-import withWidth from 'material-ui/utils/withWidth';
+import {withWidth, Paper, Tabs, Tab} from '@material-ui/core';
 
 export default withWidth()(({muscles, category, onSelect, width})=> {
     const index = category
