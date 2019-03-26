@@ -33,15 +33,13 @@ export default class extends Component {
             {muscles, onCreate} = this.props;
       return(
           <Fragment>
-            <Button variant="fab" onClick={this.handleToggle} mini>
+            <Button variant="fab" onClick={this.handleToggle} color='secondary' mini>
               <Add/>
             </Button>
 
             <Dialog
               open={open}
               onClose={this.handleToggle}
-              fullWidth
-              maxWidth='xs'
             >
               <DialogTitle id="form-dialog-title">
                 Create a new exercise

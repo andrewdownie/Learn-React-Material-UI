@@ -38,7 +38,7 @@ export default withStyles(styles)(({
         {exercises.map(([group, exercises]) => 
           !category ||  category === group
            ? <Fragment key={group}>
-            <Typography variant="headline" style={{textTransform: 'capitalize'}}>
+            <Typography variant="headline" style={{textTransform: 'capitalize'}} color='secondary'>
               {group}
             </Typography>
             <List component="ul">
@@ -50,10 +50,10 @@ export default withStyles(styles)(({
                 >
                 <ListItemText primary={title} />
                 <ListItemSecondaryAction>
-                   <IconButton onClick={() => onSelectEdit(id)}>
+                   <IconButton color='primary' onClick={() => onSelectEdit(id)}>
                      <Edit />
                    </IconButton>
-                   <IconButton onClick={() => onDelete(id)}>
+                   <IconButton color='primary' onClick={() => onDelete(id)}>
                      <Delete/>
                    </IconButton>
                   
@@ -68,19 +68,18 @@ export default withStyles(styles)(({
     </Grid>
     <Grid xs={12} sm={6} item>
       <Paper className={classes.Paper}>
-        <Typography variant="display1" gutterBottom>
+        <Typography variant="display1" color='secondary'>
           {title}
         </Typography>
         {
           editMode
           ? <Form
-              key={id}
               exercise={exercise}
               muscles={muscles}
               onSubmit={onEdit}
               />
           : <Fragment>
-              <Typography variant="subheading">
+              <Typography variant="subheading" style={{marginTop: 20}}>
                 {description}
               </Typography>
             </Fragment>
