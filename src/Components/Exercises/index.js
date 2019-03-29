@@ -4,6 +4,7 @@ import {ListItem, ListItemText, ListItemSecondaryAction} from 'material-ui/List'
 import {Delete, Edit} from '@material-ui/icons';
 import {withStyles} from 'material-ui/styles';
 import Form from './Form';
+import {withContext} from '../../context';
 
 
 const styles = theme => ({
@@ -39,10 +40,12 @@ const styles = theme => ({
   }
 });
 
-export default withStyles(styles)(({
+
+const Exercises = 
+({
   classes,
   muscles,
-  exercises,
+  exercisesByMuscles,
   category,
   editMode,
   onSelect,
@@ -59,7 +62,7 @@ export default withStyles(styles)(({
   <Grid container className={classes.container}>
     <Grid xs={12} sm={6} item className={classes.item}>
       <Paper className={classes.paper}>
-        {exercises.map(([group, exercises]) => 
+        {exercisesByMuscles.map(([group, exercises]) => 
           !category ||  category === group
            ? <Fragment key={group}>
             <Typography variant="headline" style={{textTransform: 'capitalize'}} color='secondary'>
@@ -111,4 +114,6 @@ export default withStyles(styles)(({
       </Paper>
     </Grid>
   </Grid>
-))
+)
+  
+ export default withContext(withStyles(styles)(Exercises))
