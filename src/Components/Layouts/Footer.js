@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {AppBar, Tabs} from 'material-ui';
 import {Tab} from 'material-ui/Tabs';
-import withWidth from 'material-ui/utils/withWidth';
+import {withWidth} from '@material-ui/core'
 import {withContext} from '../../context';
 
 class Footer extends Component{
@@ -22,19 +22,6 @@ class Footer extends Component{
     
     return (
       <AppBar position='static'>
-        <Tabs
-          value={this.getIndex()}
-          onChange={this.onIndexSelect}
-          indicatorColor="secondary"
-          textColor="secondary"
-          centered={width !== 'xs'}
-          scrollable={width === 'xs'}
-        >
-          <Tab label="All" />
-          {muscles.map(group =>
-            <Tab key={group} label={group} />
-          )}
-        </Tabs>
       </AppBar>
     );
   }

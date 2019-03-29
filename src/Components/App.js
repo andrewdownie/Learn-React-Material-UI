@@ -94,9 +94,7 @@ export default class extends Component{
       <Provider value={this.getContext()}>
         <CssBaseline/>
         <Header/>
-
         <Exercises/>
-
         <Footer/>
       </Provider>
     )
